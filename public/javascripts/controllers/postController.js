@@ -111,6 +111,8 @@
         return comment.author._id == authService.currentUserId();
       }
 
+      
+
       $scope.addComment = addComment;
       $scope.incrementUpvotes = incrementUpvotes;
       $scope.incrementDownvotes = incrementDownvotes;
