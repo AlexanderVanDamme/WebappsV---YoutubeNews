@@ -3,9 +3,9 @@ var crypto = require("crypto");
 var jwt = require("jsonwebtoken");
 
 var UserSchema = new mongoose.Schema({
+//  local: {
   username: {
     type: String,
-    lowercase: true,
     unique: true
   },
   upvotedPosts: [{
@@ -26,9 +26,19 @@ var UserSchema = new mongoose.Schema({
   }],
   hash: String,
   salt: String
+//}
+/*
+, facebook: {
+  id: String,
+  token: String,
+  name: String
+
+}
+*/
+
 });
 
-// TODO upvotedPosts,downvotedPosts,upvotedComments,downvotedComments not used
+
 
 UserSchema.methods.setPassword = function(password) {
   this.salt = crypto.randomBytes(16).toString("hex");

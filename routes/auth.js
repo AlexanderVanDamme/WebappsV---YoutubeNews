@@ -1,6 +1,6 @@
 (function() {
   "use strict";
-  
+
   var express = require("express");
   var router = express.Router();
 
@@ -56,5 +56,16 @@
       })(req, res, next);
     });
 
+    
+
+    /*
+    app.get('/auth/facebook', passport.authenticate('facebook'));
+
+
+    app.get('/auth/facebook/callback',
+  passport.authenticate('facebook', { successRedirect: '/',
+                                      failureRedirect: '/login' }));
+
+*/
   module.exports = router;
 })();

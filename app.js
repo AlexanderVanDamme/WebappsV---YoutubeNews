@@ -76,5 +76,12 @@ app.use(function(err, req, res, next) {
   });
 });
 
+app.get('/auth/facebook', passport.authenticate('facebook'));
+
+
+app.get('/auth/facebook/callback',
+passport.authenticate('facebook', { successRedirect: '/',
+                                  failureRedirect: '/login' }));
+
 
 module.exports = app;

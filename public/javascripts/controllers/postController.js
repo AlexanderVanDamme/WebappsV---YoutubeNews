@@ -111,7 +111,7 @@
         return comment.author._id == authService.currentUserId();
       }
 
-      
+
 
       $scope.addComment = addComment;
       $scope.incrementUpvotes = incrementUpvotes;
@@ -122,6 +122,7 @@
       $scope.showAddNewCommentForm = showAddNewCommentForm;
       $scope.hideAddNewCommentForm = hideAddNewCommentForm;
       $scope.showDeleteComment = showDeleteComment;
+      $scope.linkYoutube = $sce.trustAsResourceUrl('http://www.youtube.com/embed/'+data['yourLink']);
     }
   ]);
 })();
