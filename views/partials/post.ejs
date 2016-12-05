@@ -8,8 +8,11 @@
 </div>
 
 <div class="flex-video widescreen">
-<iframe width="560" height="315" ng-src="https://www.youtube.com/embed/OMcWgmkMpEE" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" ng-src="{{post.link}}" frameborder="0" allowfullscreen></iframe>
 </div>
+<!--
+<div myIFrame><div/>
+-->
 
 <div ng-repeat="comment in post.comments | orderBy: '-(upvotes - downvotes)'" ng-mouseenter="comment.hover = true" ng-mouseleave="comment.hover = false">
   {{comment.upvotes - comment.downvotes}}

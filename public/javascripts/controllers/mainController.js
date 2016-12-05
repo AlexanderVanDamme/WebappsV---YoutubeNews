@@ -1,9 +1,19 @@
 (function() {
   "use strict";
-  
+
   var app = angular.module("flapper-news.controllers.main", [
     "ui.router"
   ]);
+
+  app.config(function($sceDelegateProvider) {
+    $sceDelegateProvider.resourceUrlWhitelist([
+    // Allow same origin resource loads.
+    'self',
+    // Allow loading from our assets domain.  Notice the difference between * and **.
+    'https://www.youtube.com/**'
+  ]);
+});
+
 
   app.config([
     "$stateProvider",

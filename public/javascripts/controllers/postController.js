@@ -38,7 +38,9 @@
     function($scope, postService, post, authService) {
       $scope.isLoggedIn = authService.isLoggedIn;
 
+      console.log(post);
       $scope.post = post;
+  //    $scope.postlink = $sce.trustAsResourceUrl(post.link);
 
       $scope.shouldShowAddNewCommentForm = false;
 
@@ -111,7 +113,7 @@
         return comment.author._id == authService.currentUserId();
       }
 
-      
+
 
       $scope.addComment = addComment;
       $scope.incrementUpvotes = incrementUpvotes;

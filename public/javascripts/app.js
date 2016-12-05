@@ -1,6 +1,6 @@
 (function() {
   "use strict";
-  
+
   var app = angular.module("flapper-news", [
     "flapper-news.controllers.main",
     "flapper-news.controllers.post",

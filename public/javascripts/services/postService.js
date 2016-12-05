@@ -1,6 +1,6 @@
 (function() {
   "use strict";
-  
+
   var app = angular.module("flapper-news.services.post", []);
 
   app.factory("postService", [
@@ -14,6 +14,7 @@
       function getAll() {
         return $http.get("/posts").then(function(response) {
           angular.copy(response.data, o.posts);
+          console.log(o.posts);
         });
       }
 
@@ -77,7 +78,7 @@
             Authorization: "Bearer " + authService.getToken()
           }
         }).success(function(upvotedComment) {
-          // TODO should code like this be in the controller or the service?
+
           angular.copy(upvotedComment, comment);
         });
       }
@@ -99,6 +100,8 @@
           }
         });
       }
+
+
 
       o.getAll = getAll;
       o.get = get;
