@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  var app = angular.module("flapper-news.controllers.main", [
+  var app = angular.module("youber-news.controllers.main", [
     "ui.router"
   ]);
 

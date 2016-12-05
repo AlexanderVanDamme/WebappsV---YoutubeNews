@@ -1,7 +1,7 @@
 (function() {
   "use strict";
 
-  var app = angular.module("flapper-news.services.post", []);
+  var app = angular.module("youber-news.services.post", []);
 
   app.factory("postService", [
     "$http",

@@ -1,7 +1,7 @@
 (function() {
   "use strict";
-  
-  var app = angular.module("flapper-news.services.auth", []);
+
+  var app = angular.module("youber-news.services.auth", []);
 
   app.factory("authService", [
     "$http",

@@ -1,13 +1,13 @@
 (function() {
   "use strict";
 
-  var app = angular.module("flapper-news", [
-    "flapper-news.controllers.main",
-    "flapper-news.controllers.post",
-    "flapper-news.controllers.auth",
-    "flapper-news.controllers.nav",
-    "flapper-news.services.post",
-    "flapper-news.services.auth",
+  var app = angular.module("youber-news", [
+    "youber-news.controllers.main",
+    "youber-news.controllers.post",
+    "youber-news.controllers.auth",
+    "youber-news.controllers.nav",
+    "youber-news.services.post",
+    "youber-news.services.auth",
     "ui.router"
   ]);
 
