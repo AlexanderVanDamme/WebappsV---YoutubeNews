@@ -15,6 +15,14 @@
 });
 
 
+app.directive('mijnFilmpje', function() {
+  return {
+    restrict: 'AE',
+    replace: 'true',
+    template: '<div class="flex-video widescreen"><iframe width="560" height="315" ng-src="{{post.link}}" frameborder="0" allowfullscreen></iframe></div>'
+  };
+});
+
   app.config([
     "$stateProvider",
     function($stateProvider) {
