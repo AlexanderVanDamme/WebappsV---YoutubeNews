@@ -1,6 +1,6 @@
 (function() {
   "use strict";
-  
+
   var express = require("express");
   var router = express.Router();
 
@@ -9,11 +9,10 @@
 
   var jwt = require("express-jwt");
   var auth = jwt({
-    secret: "SECRET", // TODO again, this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
+    secret: "SECRET",
     userProperty: "payload"
   });
 
-  // TODO this is probably an issue sending salts and such over the network?
   router.route("/users")
     .get(auth, function(request, response, next) {
       User.find(function(err, users) {

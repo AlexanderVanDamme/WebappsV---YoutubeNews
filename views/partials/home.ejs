@@ -1,25 +1,21 @@
 <div class="page-header">
-  <h1>Youber News</h1>
+  <h1 style="font-size: 35px;" >Youber News</h1>
 </div>
-<div ng-repeat="post in posts | orderBy: '-(upvotes - downvotes)'" ng-mouseenter="post.hover = true" ng-mouseleave="post.hover = false">
-  <span style="font-size:20px; margin-left:10px;">
-    <a ng-show="post.link" target="_blank" href="{{post.link}}">
+<div ng-repeat="post in posts | orderBy: '-(upvotes - downvotes)'" ng-mouseenter="post.hover = true" ng-mouseleave="post.hover = false" style="margin-top:25px;">
+  <span style="font-size:20px; margin-left:7px;">
+    <a style="padding-top:35px;"  ui-sref="post({ id: post._id })">
       {{post.title}}
     </a>
     <span ng-hide="post.link">
       {{post.title}}
     </span>
 
-    <div class="flex-video widescreen">
-    <iframe width="560" height="315" ng-src="{{post.link}}" frameborder="0" allowfullscreen>
-      <p>iframes are not supported by your browser</p>
-    </iframe>
+    <div style="padding-top:8px;">
+      <mijn-filmpje/>
     </div>
 
-  <!--  - upvotes: {{post.upvotes}} | downvotes: {{post.downvotes}} -->
   </span>
-
-
+  
   {{post.upvotes - post.downvotes}}
   <a href="" ng-click="incrementUpvotes(post)"><i class="fa fa-lg fa-thumbs-up" ng-class="getUpvoteColor(post)" ng-mouseenter="post.upvoteHover = true" ng-mouseleave="post.upvoteHover = false"></i></a>
   <a href="" ng-click="incrementDownvotes(post)"><i class="fa fa-lg fa-thumbs-down" ng-class="getDownvoteColor(post)" ng-mouseenter="post.downvoteHover = true" ng-mouseleave="post.downvoteHover = false"></i></a>
@@ -31,7 +27,7 @@
     <a ui-sref="post({ id: post._id })">Comments ({{post.comments.length}})</a>
   </span>
   <div class="vertical-align pull-right" ng-show="showDeletePost(post) && post.hover">
-    <a href="" ng-click="deletePost(post)">
+    <a href="" ng-click="deletePost(post)" confirm="Save Changes?">
       <i class="fa fa-lg fa-remove text-danger"></i>
     </a>
   </div>

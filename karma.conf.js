@@ -15,10 +15,16 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      '../../bower_components/angular/angular.js',
-      '../../bower_components/angular-mocks/angular-mocks.js',
-      '../app.js',
-      'unit/*.js'
+      'libs/angular.js',
+      'app.js',
+      'http://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.10/angular-ui-router.js',
+      'libs/angular-mocks.js',
+      'https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.3.0/ui-bootstrap-tpls.js',
+      'public/javascripts/app.js',
+      'public/javascripts/controllers/*.js',
+      'public/javascripts/services/*.js',
+      'public/tests/*.js'
+
     ],
 
 
@@ -36,7 +42,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['spec'],
 
 
     // web server port
@@ -58,7 +64,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

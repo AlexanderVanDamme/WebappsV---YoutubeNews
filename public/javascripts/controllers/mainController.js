@@ -7,21 +7,41 @@
 
   app.config(function($sceDelegateProvider) {
     $sceDelegateProvider.resourceUrlWhitelist([
-    // Allow same origin resource loads.
-    'self',
-    // Allow loading from our assets domain.  Notice the difference between * and **.
-    'https://www.youtube.com/**'
-  ]);
-});
+      // Allow same origin resource loads.
+      'self',
+      // Allow loading from our assets domain.  Notice the difference between * and **.
+      'https://www.youtube.com/**'
+    ]);
+  });
 
 
-app.directive('mijnFilmpje', function() {
-  return {
-    restrict: 'AE',
-    replace: 'true',
-    template: '<div class="flex-video widescreen"><iframe width="560" height="315" ng-src="{{post.link}}" frameborder="0" allowfullscreen></iframe></div>'
-  };
-});
+  app.directive('mijnFilmpje', function() {
+    return {
+      restrict: 'AE',
+      replace: 'true',
+      template: '<div class="flex-video widescreen"><iframe width="560" height="315" ng-src="{{post.link}}" frameborder="0" allowfullscreen></iframe></div>'
+    };
+  });
+
+
+  app.directive('confirm', [function () {
+    return {
+      priority: 100,
+      restrict: 'A',
+      link: {
+        pre: function (scope, element, attrs) {
+          var msg = attrs.confirm || "Are you sure?";
+
+          element.bind('click', function (event) {
+            if (!confirm(msg)) {
+              event.stopImmediatePropagation();
+              event.preventDefault;
+            }
+          });
+        }
+      }
+    };
+  }]);
 
   app.config([
     "$stateProvider",
@@ -75,7 +95,7 @@ app.directive('mijnFilmpje', function() {
       }
 
       function deletePost(post) {
-        // TODO add modal confirmation
+      
         postService.deletePost(post);
       }
 

@@ -11,7 +11,7 @@
 
   var jwt = require("express-jwt");
   var auth = jwt({
-    secret: "SECRET", // TODO again, this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
+    secret: "SECRET",
     userProperty: "payload"
   });
 
@@ -22,7 +22,6 @@
           return next(err);
         }
 
-        // Load the author objects, but only the id and username, for security reasons
         Post.populate(posts, {
           path: "author",
           select: "username"
@@ -50,7 +49,7 @@
       });
     });
 
-  // TODO error handling on these populate promises
+  // populate promises
   router.route("/posts/:post")
     .get(function(req, res, next) {
       Post.populate(req.post, {
@@ -65,13 +64,11 @@
       });
     })
     .delete(auth, function(req, res, next) {
-      // TODO better, more standard way to do this?
       if (req.post.author != req.payload._id) {
         res.statusCode = 401;
         return res.end("invalid authorization");
       }
 
-      // TODO: I wonder if there is a way to define a cascade strategy
       Comment.remove({ post: req.post }, function(err) {
         if (err) {
           return next(err);
@@ -82,7 +79,6 @@
             return next(err);
           }
 
-          // TODO what's the best practice here?
           res.send("success");
         });
       });

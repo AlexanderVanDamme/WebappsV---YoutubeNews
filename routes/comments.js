@@ -10,7 +10,7 @@
 
   var jwt = require("express-jwt");
   var auth = jwt({
-    secret: "SECRET", // TODO again, this should be stored in an ENV variable and kept off the codebase, same as it is in the User model
+    secret: "SECRET",
     userProperty: "payload"
   });
 
@@ -44,13 +44,11 @@
 
   router.route("/posts/:post/comments/:comment")
     .delete(auth, function(req, res, next) {
-      // TODO better, more standard way to do this?
       if (req.comment.author != req.payload._id) {
         res.statusCode = 401;
         return res.end("invalid authorization");
       }
 
-      // TODO better way to handle this?
       req.post.comments.splice(req.post.comments.indexOf(req.comment), 1);
       req.post.save(function(err, post) {
         if (err) {
@@ -62,7 +60,6 @@
             return next(err);
           }
 
-          // TODO what's the best practice here?
           res.send("success");
         });
       });

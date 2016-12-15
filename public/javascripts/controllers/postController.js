@@ -69,7 +69,10 @@
       }
 
       function deleteComment(comment) {
-        // TODO add modal confirmation
+
+
+
+
         postService.deleteComment(post, comment)
           .success(function() {
             post.comments.splice(post.comments.indexOf(comment), 1);

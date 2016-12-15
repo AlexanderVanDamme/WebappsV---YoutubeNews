@@ -28,8 +28,6 @@ var UserSchema = new mongoose.Schema({
   salt: String
 });
 
-// TODO upvotedPosts,downvotedPosts,upvotedComments,downvotedComments not used
-
 UserSchema.methods.setPassword = function(password) {
   this.salt = crypto.randomBytes(16).toString("hex");
 
@@ -43,7 +41,7 @@ UserSchema.methods.validPassword = function(password) {
 };
 
 UserSchema.methods.generateJWT = function() {
-  // set expiration to 60 days
+
   var today = new Date();
   var exp = new Date(today);
   exp.setDate(today.getDate() + 60);
@@ -52,7 +50,7 @@ UserSchema.methods.generateJWT = function() {
     _id: this._id,
     username: this.username,
     exp: parseInt(exp.getTime() / 1000)
-  }, "SECRET"); // TODO this should be setup as an ENV variable as should be kept out of the codebase
+  }, "SECRET"); 
 };
 
 mongoose.model("User", UserSchema);

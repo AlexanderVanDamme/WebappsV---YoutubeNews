@@ -1,6 +1,6 @@
 (function() {
   "use strict";
-  
+
   var express = require("express");
   var router = express.Router();
 
@@ -10,11 +10,6 @@
         title: "Express"
       });
     });
-
-  // router.param("name", function(req, res, next, id) {
-  //   req.name = id;
-  //   return next();
-  // });
 
   module.exports = router;
 })();
