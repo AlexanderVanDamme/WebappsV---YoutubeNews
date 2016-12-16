@@ -19,7 +19,7 @@
     return {
       restrict: 'AE',
       replace: 'true',
-      template: '<div class="flex-video widescreen"><iframe width=100% height=100% ng-src="{{post.link}}" frameborder="0" allowfullscreen></iframe></div>'
+      template: '<div class="flex-video widescreen"><iframe width=100% height="315" ng-src="{{post.link}}" frameborder="0" allowfullscreen></iframe></div>'
     };
   });
 
