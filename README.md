@@ -7,3 +7,6 @@ In opdracht van webapplicaties V
 1. ``cd`` to ``youber-news`` root directory
 2. ``npm install``
 3. ```set DEBUG=youber-news:server & npm start``` (Windows) | ```DEBUG=youber-news:server npm start``` (Mac and Linux)
+
+De youber news site:
+http://youbernews.herokuapp.com/
