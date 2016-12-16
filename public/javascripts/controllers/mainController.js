@@ -83,6 +83,15 @@
           return;
         }
 
+        var regExp = /^.*(youtu\.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+        var match = $scope.link.match(regExp);
+        if (match && match[2].length == 11) {
+          $scope.link= "https://www.youtube.com/embed/" + match[2];
+        } else {
+          return;
+          Console.console.log("slechte youtube url");
+        }
+
         postService.create({
           title: $scope.title,
           link: $scope.link,
@@ -95,7 +104,7 @@
       }
 
       function deletePost(post) {
-      
+
         postService.deletePost(post);
       }
 
