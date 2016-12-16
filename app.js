@@ -22,7 +22,9 @@ var usersRoutes = require("./routes/users");
 
 var app = express();
 
-mongoose.connect("mongodb://localhost/news");
+//mongoose.connect("mongodb://localhost/news");
+
+mongoose.connect("mongodb://youbernewsdaddybase:admin@ds052819.mlab.com:52819/youbernews");
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
